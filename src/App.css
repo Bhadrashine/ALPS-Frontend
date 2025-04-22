@@ -1,3 +1,4 @@
+/* App Base */
 .app {
   position: relative;
   height: 100vh;
@@ -158,38 +159,30 @@
   z-index: 1;
 }
 
-/* Alert Button (if used in future) */
-.alert-btn {
+/* Suggestions Dropdown */
+.suggestions-dropdown {
   position: absolute;
-  top: 50%;
-  right: 40px;
-  transform: translateY(-50%);
-  background-color: red;
-  color: white;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.suggestion-item {
+  padding: 10px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
 }
 
 /* Custom Fixed Popup */
-/* Custom Fixed Popup */
-.custom-popup {
-  position: fixed; /* Ensures it stays fixed in place */
-  top: 250px;      /* 120px from the top of the screen */
-  left:1250px;         /* Move to the left corner */
-  background-color: rgba(14, 0, 0, 0.95);
-  color: rgb(255, 255, 255);
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  z-index: 1000;   /* Ensure it's above other content */
-  width: 220px;
-  font-size: 0.95rem;
-  line-height: 2;
-}
+
 
 /* Close Button Style */
 .custom-popup .close-btn {
@@ -201,17 +194,6 @@
   color: rgb(255, 255, 255);
   font-size: 1.2rem;
   cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
 }
 
 /* Location Pin Emoji */
@@ -238,45 +220,89 @@
   z-index: 101; /* Ensure it's above the map but below the pin */
 }
 
-/* Location Pin Emoji */
-.location-pin {
-  position: absolute;
-  font-size: 2rem; /* Emoji size */
-  transform: translate(-50%, -100%); /* Position above the point */
-  z-index: 100; /* Keep on top of the map */
-  pointer-events: none; /* Allow clicks to pass through */
-}
-
 /* Custom Popup */
 .custom-popup {
   position: absolute;
+  top: 300px; /* Place the popup below the pin */
+  left: 1200px;
   background-color: rgba(1, 4, 15, 0.707);
   color: rgb(250, 247, 247);
   padding: 15px 20px;
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  z-index: 101; /* Ensure it's above the map but below the pin */
+  z-index: 101;
   font-size: 0.95rem;
-  line-height: 1.4;
+  width: 250px;
+  line-height: 1.6;
 }
+
+/* Responsive Styles */
 @media (max-width: 500px) {
   .summary-card {
     width: 90%;
     left: 5%;
     transform: none;
   }
-}
-.fixed-popup {
-  position: fixed;
-  top: 100px;
-  right: 20px;
-  background-color: rgba(66, 66, 67, 0.95);
+
+  .search-container {
+    width: 200px;
+  }
+
+  .search-bar {
+    font-size: 0.85rem;
+  }
+
+  .controls button {
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+
+  .custom-popup {
+    width: 180px;
+    font-size: 0.85rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+
+  .lat-long-time-label {
+    font-size: 0.7rem;
+  }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .search-contribute-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  /* Contribute Button Style - move this OUT of media query */
+/* Contribute Button */
+.contribute-button {
+  background-color: transparent;
   color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  width: 220px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  z-index: 1001;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contribute-button:hover {
+  background-color: white;
+  color: #333;
+}
+
+
+
+  
 }
